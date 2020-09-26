@@ -1,5 +1,6 @@
 {
-  "name": "xspeedit",
+  "name": "@haswell/xspeedit",
+  "private": false,
   "version": "1.0.0",
   "description": "Packaging Optimizer",
   "main": "dist/main.js",
