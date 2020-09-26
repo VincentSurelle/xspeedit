@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "Packaging Optimizer",
   "main": "dist/main.js",
-  "bin": "dist/main.js",
+  "bin": {
+    "xspeedit": "dist/main.js"
+  },
   "scripts": {
     "xspeedit:dev": "ts-node src/main.ts",
+    "xspeedit": "node dist/main.js",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",
