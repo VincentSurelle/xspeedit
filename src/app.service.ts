@@ -18,7 +18,7 @@ export class AppService {
     const boxes: string[] = []
     let leftoverItems = this.fillBox(items, boxes)
     while (leftoverItems.length > 0) {
-      let others = this.fillBox(leftoverItems, boxes)
+      const others = this.fillBox(leftoverItems, boxes)
       leftoverItems = [...others]
     }
     return boxes.join('/')
@@ -28,7 +28,7 @@ export class AppService {
     let [boxItems, ...otherItems] = items.sort(
       (a: string, b: string) => parseInt(b) - parseInt(a)
     )
-    let leftoverItems = [...otherItems]
+    const leftoverItems = [...otherItems]
 
     while (otherItems.length > 0) {
       const [firstFit, ...otherFits] = otherItems.filter(
