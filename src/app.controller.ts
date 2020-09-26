@@ -1,8 +1,33 @@
-import { Controller } from '@nestjs/common'
+import { Controller, Logger } from '@nestjs/common'
 import { ConsoleService } from 'nestjs-console'
 import { AppService } from './app.service'
+import { isDigitString } from './app.utils'
 
 @Controller()
 export class AppController {
-  constructor(private readonly consoleService: ConsoleService, private readonly appService: AppService) {}
+  constructor(
+    private readonly consoleService: ConsoleService,
+    private readonly appService: AppService
+  ) {
+    this.consoleService.createCommand(
+      {
+        command: 'basic-package <input>',
+        description: 'Fill packages by taking items one by one'
+      },
+      this.basicFillPackages,
+      this.consoleService.getCli()
+    )
+  }
+
+  basicFillPackages = (input: string): string => {
+    if (!isDigitString(input)) {
+      Logger.error(`The input mus only contains digits`)
+      return
+    }
+
+    const [...items] = input
+    const boxes = this.appService.basicPackage(items)
+    Logger.log(boxes)
+    return boxes
+  }
 }
