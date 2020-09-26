@@ -28,4 +28,16 @@ describe('AppController', () => {
       expect(appController.basicFillPackages('1234a56789')).toBe(undefined)
     })
   })
+
+  describe('optimizedFillPackages', () => {
+    it('should return optimized box list', () => {
+      expect(appController.optimizedFillPackages('163841689525773')).toBe(
+        '91/82/81/73/73/64/6/55'
+      )
+    })
+
+    it('should fail when input has letters', () => {
+      expect(appController.optimizedFillPackages('1234a56789')).toBe(undefined)
+    })
+  })
 })

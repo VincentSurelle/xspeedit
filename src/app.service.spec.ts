@@ -35,4 +35,28 @@ describe('AppService', () => {
       ).toBe('163/8/41/6/8/9/52/5/7/73')
     })
   })
+
+  describe('optimizedPackage', () => {
+    it('should return optimized box list', () => {
+      expect(
+        service.optimizedPackage([
+          '1',
+          '6',
+          '3',
+          '8',
+          '4',
+          '1',
+          '6',
+          '8',
+          '9',
+          '5',
+          '2',
+          '5',
+          '7',
+          '7',
+          '3'
+        ])
+      ).toBe('91/82/81/73/73/64/6/55')
+    })
+  })
 })

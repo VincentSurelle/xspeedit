@@ -12,9 +12,17 @@ export class AppController {
     this.consoleService.createCommand(
       {
         command: 'basic-package <input>',
-        description: 'Fill packages by taking items one by one'
+        description: 'Fill boxes by taking items one by one'
       },
       this.basicFillPackages,
+      this.consoleService.getCli()
+    )
+    this.consoleService.createCommand(
+      {
+        command: 'optimized-package <input>',
+        description: 'Filling using as few boxes as possible'
+      },
+      this.optimizedFillPackages,
       this.consoleService.getCli()
     )
   }
@@ -27,6 +35,18 @@ export class AppController {
 
     const [...items] = input
     const boxes = this.appService.basicPackage(items)
+    Logger.log(boxes)
+    return boxes
+  }
+
+  optimizedFillPackages = (input: string): string => {
+    if (!isDigitString(input)) {
+      Logger.error(`The input mus only contains digits`)
+      return
+    }
+
+    const [...items] = input
+    const boxes = this.appService.optimizedPackage(items)
     Logger.log(boxes)
     return boxes
   }
