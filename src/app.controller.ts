@@ -35,7 +35,7 @@ export class AppController {
 
     const [...items] = input
     const boxes = this.appService.basicPackage(items)
-    Logger.log(boxes)
+    console.log(boxes)
     return boxes
   }
 
@@ -47,7 +47,7 @@ export class AppController {
 
     const [...items] = input
     const boxes = this.appService.optimizedPackage(items)
-    Logger.log(boxes)
+    console.log(boxes)
     return boxes
   }
 }
