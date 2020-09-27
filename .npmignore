@@ -1,6 +1,7 @@
 src
 .eslintrc.js
 .gitignore
+.github
 .prettierrc
 tsconfig.json
 coverage

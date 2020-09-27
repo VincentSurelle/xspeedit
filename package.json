@@ -3,9 +3,9 @@
   "private": false,
   "version": "1.0.1",
   "description": "Packaging Optimizer",
-  "main": "dist/main.js",
+  "main": "console.js",
   "bin": {
-    "xspeedit": "dist/main.js"
+    "xspeedit": "console.js"
   },
   "scripts": {
     "xspeedit:dev": "ts-node src/main.ts",
